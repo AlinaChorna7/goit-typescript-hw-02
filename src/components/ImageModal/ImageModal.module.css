@@ -1,0 +1,22 @@
+.modal {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background: transparent; 
+    pointer-events: none; 
+    width: auto;
+  }
+  
+  .modalImage {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    margin: auto; 
+  }
+
+  

@@ -1,18 +1,23 @@
+import React from 'react';
+import styles from './ImageCard.module.css';
+import { Image } from '../App/App.types'; 
 
-import styles from './ImageCart.module.css';
-import {Image} from '../App/App.types'
-
-type ImageCardProps = {
+type ImageCardProps ={
   image: Image;
- onClick: ()=>void;
+  onClick: () => void; 
 }
 
-function ImageCard({ image, onClick }:ImageCardProps) {
+function ImageCard({ image, onClick }:ImageCardProps)  {
   return (
-    <div className={styles.ImageCard} >
-      <img src={image.urls.small} alt={image.alt_description} onClick={onClick} className={styles.image} />
+    <div className={styles.ImageCard}>
+      <img
+        src={image.urls.small}
+        alt={image.alt_description}
+        onClick={onClick}
+        className={styles.image}
+      />
     </div>
   );
-}
+};
 
 export default ImageCard;

@@ -8,6 +8,7 @@ import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import ImageModal from '../ImageModal/ImageModal';
 import { Image } from './App.types';
+import { ApiResponse } from './App.types';
 
 type Error = string | null;
 
@@ -25,12 +26,12 @@ export default function App(): JSX.Element {
   useEffect(() => {
     if (query === '') return;
 
-    const fetchImages = async () => {
+    const fetchImages = async ():Promise<void> => {
       setIsLoading(true);
       setError(null);
 
       try {
-        const response = await axios.get(`${BASE_URL}&query=${query}&page=${page}&per_page=12`);
+        const response = await axios.get<ApiResponse>(`${BASE_URL}&query=${query}&page=${page}&per_page=12`);
         setImages((prevImages) => [...prevImages, ...response.data.results]);
       } catch (err) {
         setError('Something went wrong, please try again.');
